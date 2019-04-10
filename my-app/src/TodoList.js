@@ -52,7 +52,7 @@ getTodoIntems(){
 
 render() {
     return (
-      <div>
+      <React.Fragment>
         <div>
           <input value={this.state.inputValue} onChange={this.handleInputChange} />
           <button className='red-btn' onClick={this.handleBtnClick}>add</button>
@@ -60,7 +60,7 @@ render() {
         <ul>
             {this.getTodoIntems()}
         </ul>
-      </div>
+      </React.Fragment>
     );
   }
 }
