@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import TodoItem from './TodoItem';
 
-class App extends Component {
+class TodoList extends Component {
 
   constructor(props){
     super(props);
@@ -23,13 +24,13 @@ handleInputChange(e){
   })
 }
 
-handleItemClick(index){
-  const list =[...this.state.list];
-  list.splice(index,1);
-  this.setState({
-    list
-  })
+
+handleDelete(index){
+    const list =[...this.state.list];
+    list.splice(index,1);
+    this.setState({list})
 }
+
 
 render() {
     return (
@@ -41,7 +42,9 @@ render() {
         <ul>
             {
               this.state.list.map((item,index) => {
-                return <li key={index} onClick={this.handleItemClick.bind(this,index)} > {item}</li>
+                // 父组件子组件传递属性 如 content  index
+                // 子组件父组件传递方法来取值如  deleteFunction
+                return <TodoItem deleteFunction={this.handleDelete.bind(this)} key={index} content={item} index={index} />
               })
             }
         </ul>
@@ -50,4 +53,4 @@ render() {
   }
 }
 
-export default App;
+export default TodoList;
