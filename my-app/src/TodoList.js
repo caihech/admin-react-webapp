@@ -55,7 +55,7 @@ render() {
       <div>
         <div>
           <input value={this.state.inputValue} onChange={this.handleInputChange} />
-          <button onClick={this.handleBtnClick}>add</button>
+          <button style={{background:'red'}} onClick={this.handleBtnClick}>add</button>
         </div>
         <ul>
             {this.getTodoIntems()}
